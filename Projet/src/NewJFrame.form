@@ -23,83 +23,79 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="texte_lbl_nb_chiffres_bas" min="-2" pref="37" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="texte_nb_chiffres_bas" min="-2" pref="37" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="down_chiffre_1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="up_chiffre_1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="texte_lbl_nb_chiffres_exacts" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="texte_nb_chiffres_exacts" min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="texte_lbl_nb_chiffres_haut" min="-2" pref="37" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="texte_nb_chiffres_haut" min="-2" pref="37" max="-2" attributes="0"/>
-                              </Group>
+                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="down_chiffre_2" min="-2" max="-2" attributes="0"/>
+                          <Component id="up_chiffre_2" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                      <Component id="up_chiffre_3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="texte_lbl_nb_chiffres_haut" alignment="0" min="-2" pref="196" max="-2" attributes="0"/>
+                              <Component id="texte_lbl_nb_chiffres_exacts" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="texte_lbl_nb_chiffres_bas" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="texte_nb_chiffres_haut" alignment="1" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="texte_nb_chiffres_exacts" alignment="1" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="texte_nb_chiffres_bas" alignment="1" min="-2" pref="37" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="texte_chiffre_0" min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                          <Component id="texte_chiffre_1" min="-2" pref="37" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="down_chiffre_3" min="-2" max="-2" attributes="0"/>
+                              <Component id="texte_chiffre_2" min="-2" pref="37" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
               </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="texte_chiffre_0" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                  <Component id="texte_chiffre_1" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                  <Component id="texte_chiffre_2" min="-2" pref="37" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="texte_tentatives" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="texte_nb_tentatives" min="-2" pref="37" max="-2" attributes="0"/>
-                      <Component id="bouton_recommencer" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="texte_chiffre_3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <EmptySpace pref="12" max="32767" attributes="0"/>
-                          <Component id="bouton_tester" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="texte_chiffre_3" min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="bouton_tester" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="down_chiffre_4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="texte_nb_tentatives" min="-2" pref="37" max="-2" attributes="0"/>
+                                  <Component id="bouton_recommencer" min="-2" max="-2" attributes="0"/>
+                                  <Component id="texte_tentatives" alignment="0" min="-2" pref="68" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="up_chiffre_4" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="down_chiffre_1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="down_chiffre_2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="down_chiffre_3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="texte_intro" min="-2" pref="37" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="up_chiffre_1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="up_chiffre_2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="up_chiffre_3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="down_chiffre_4" min="-2" max="-2" attributes="0"/>
-                  <Component id="up_chiffre_4" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="72" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+              <Component id="texte_intro" min="-2" pref="250" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -107,15 +103,21 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Component id="texte_intro" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="up_chiffre_1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="up_chiffre_2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="up_chiffre_3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="up_chiffre_4" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="texte_intro" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="up_chiffre_1" alignment="0" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="up_chiffre_4" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="up_chiffre_3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Component id="up_chiffre_2" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="texte_chiffre_0" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="texte_chiffre_1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -123,7 +125,7 @@
                   <Component id="texte_chiffre_3" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="bouton_tester" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -149,13 +151,12 @@
                   <Component id="texte_nb_chiffres_haut" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="texte_nb_tentatives" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="texte_lbl_nb_chiffres_bas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="texte_nb_tentatives" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="texte_nb_chiffres_bas" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="texte_lbl_nb_chiffres_bas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="40" max="32767" attributes="0"/>
               <Component id="bouton_recommencer" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
           </Group>
@@ -165,27 +166,27 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="texte_chiffre_0">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_chiffre_1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_chiffre_2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_chiffre_3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel4"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="bouton_tester">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Tester"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bouton_testerActionPerformed"/>
@@ -193,27 +194,27 @@
     </Component>
     <Component class="javax.swing.JLabel" name="texte_lbl_nb_chiffres_exacts">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel5"/>
+        <Property name="text" type="java.lang.String" value="Nombre de chiffres exacts:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_lbl_nb_chiffres_haut">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel6"/>
+        <Property name="text" type="java.lang.String" value="Nombre de chiffres trop hauts:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_lbl_nb_chiffres_bas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel7"/>
+        <Property name="text" type="java.lang.String" value="Nombre de chiffres trop bas:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_tentatives">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel8"/>
+        <Property name="text" type="java.lang.String" value="Tentatives"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="bouton_recommencer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton2"/>
+        <Property name="text" type="java.lang.String" value="Recommencer"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bouton_recommencerActionPerformed"/>
@@ -221,12 +222,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="texte_nb_tentatives">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel9"/>
+        <Property name="text" type="java.lang.String" value="0 sur 5"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="up_chiffre_1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton3"/>
+        <Property name="text" type="java.lang.String" value="&#x25b2;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up_chiffre_1ActionPerformed"/>
@@ -234,7 +235,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="up_chiffre_2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton4"/>
+        <Property name="text" type="java.lang.String" value="&#x25b2;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up_chiffre_2ActionPerformed"/>
@@ -242,7 +243,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="up_chiffre_3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton5"/>
+        <Property name="text" type="java.lang.String" value="&#x25b2;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up_chiffre_3ActionPerformed"/>
@@ -250,7 +251,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="up_chiffre_4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton6"/>
+        <Property name="text" type="java.lang.String" value="&#x25b2;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="up_chiffre_4ActionPerformed"/>
@@ -258,7 +259,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="down_chiffre_4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton7"/>
+        <Property name="text" type="java.lang.String" value="&#x25bc;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="down_chiffre_4ActionPerformed"/>
@@ -266,7 +267,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="down_chiffre_3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton8"/>
+        <Property name="text" type="java.lang.String" value="&#x25bc;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="down_chiffre_3ActionPerformed"/>
@@ -274,7 +275,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="down_chiffre_2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton9"/>
+        <Property name="text" type="java.lang.String" value="&#x25bc;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="down_chiffre_2ActionPerformed"/>
@@ -282,7 +283,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="down_chiffre_1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton10"/>
+        <Property name="text" type="java.lang.String" value="&#x25bc;"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="down_chiffre_1ActionPerformed"/>
@@ -290,22 +291,22 @@
     </Component>
     <Component class="javax.swing.JLabel" name="texte_intro">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="Trouvez le bon code en moins de 5 tentatives!"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_nb_chiffres_exacts">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_nb_chiffres_haut">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel1"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="texte_nb_chiffres_bas">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel2"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
     </Component>
   </SubComponents>

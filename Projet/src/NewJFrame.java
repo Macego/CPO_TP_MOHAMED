@@ -7,16 +7,47 @@
  *
  * @author Macéo
  */
+
 public class NewJFrame extends javax.swing.JFrame {
-    
+    private Métier jeu;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame.class.getName());
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
-        initComponents();
-    }
+public NewJFrame() {
+    initComponents();
+    jeu = new Métier();          // adapte au constructeur de ta classe
+    initialiserInterface();
+}
+
+private void initialiserInterface() {
+    texte_intro.setText("Trouvez le bon code en moins de 5 tentatives !");
+    texte_chiffre_0.setText("0");
+    texte_chiffre_1.setText("0");
+    texte_chiffre_2.setText("0");
+    texte_chiffre_3.setText("0");
+
+    texte_lbl_nb_chiffres_exacts.setText("Nombre de chiffres exacts :");
+    texte_lbl_nb_chiffres_haut.setText("Nombre de chiffres trop hauts :");
+    texte_lbl_nb_chiffres_bas.setText("Nombre de chiffres trop bas :");
+
+    texte_nb_chiffres_exacts.setText("0");
+    texte_nb_chiffres_haut.setText("0");
+    texte_nb_chiffres_bas.setText("0");
+
+    texte_tentatives.setText("Tentatives");
+    texte_nb_tentatives.setText("0 sur " + jeu.getMaxTentatives());
+}
+
+private int incrementer(int valeur) {
+    return (valeur + 1) % 10;
+}
+
+private int decrementer(int valeur) {
+    return (valeur + 9) % 10;   // -1 modulo 10
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -53,186 +84,184 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        texte_chiffre_0.setText("jLabel1");
+        texte_chiffre_0.setText("0");
 
-        texte_chiffre_1.setText("jLabel2");
+        texte_chiffre_1.setText("0");
 
-        texte_chiffre_2.setText("jLabel3");
+        texte_chiffre_2.setText("0");
 
-        texte_chiffre_3.setText("jLabel4");
+        texte_chiffre_3.setText("0");
 
-        bouton_tester.setText("jButton1");
+        bouton_tester.setText("Tester");
         bouton_tester.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bouton_testerActionPerformed(evt);
             }
         });
 
-        texte_lbl_nb_chiffres_exacts.setText("jLabel5");
+        texte_lbl_nb_chiffres_exacts.setText("Nombre de chiffres exacts:");
 
-        texte_lbl_nb_chiffres_haut.setText("jLabel6");
+        texte_lbl_nb_chiffres_haut.setText("Nombre de chiffres trop hauts:");
 
-        texte_lbl_nb_chiffres_bas.setText("jLabel7");
+        texte_lbl_nb_chiffres_bas.setText("Nombre de chiffres trop bas:");
 
-        texte_tentatives.setText("jLabel8");
+        texte_tentatives.setText("Tentatives");
 
-        bouton_recommencer.setText("jButton2");
+        bouton_recommencer.setText("Recommencer");
         bouton_recommencer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bouton_recommencerActionPerformed(evt);
             }
         });
 
-        texte_nb_tentatives.setText("jLabel9");
+        texte_nb_tentatives.setText("0 sur 5");
 
-        up_chiffre_1.setText("jButton3");
+        up_chiffre_1.setText("▲");
         up_chiffre_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 up_chiffre_1ActionPerformed(evt);
             }
         });
 
-        up_chiffre_2.setText("jButton4");
+        up_chiffre_2.setText("▲");
         up_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 up_chiffre_2ActionPerformed(evt);
             }
         });
 
-        up_chiffre_3.setText("jButton5");
+        up_chiffre_3.setText("▲");
         up_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 up_chiffre_3ActionPerformed(evt);
             }
         });
 
-        up_chiffre_4.setText("jButton6");
+        up_chiffre_4.setText("▲");
         up_chiffre_4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 up_chiffre_4ActionPerformed(evt);
             }
         });
 
-        down_chiffre_4.setText("jButton7");
+        down_chiffre_4.setText("▼");
         down_chiffre_4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 down_chiffre_4ActionPerformed(evt);
             }
         });
 
-        down_chiffre_3.setText("jButton8");
+        down_chiffre_3.setText("▼");
         down_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 down_chiffre_3ActionPerformed(evt);
             }
         });
 
-        down_chiffre_2.setText("jButton9");
+        down_chiffre_2.setText("▼");
         down_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 down_chiffre_2ActionPerformed(evt);
             }
         });
 
-        down_chiffre_1.setText("jButton10");
+        down_chiffre_1.setText("▼");
         down_chiffre_1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 down_chiffre_1ActionPerformed(evt);
             }
         });
 
-        texte_intro.setText("jLabel1");
+        texte_intro.setText("Trouvez le bon code en moins de 5 tentatives!");
 
-        texte_nb_chiffres_exacts.setText("jLabel1");
+        texte_nb_chiffres_exacts.setText("0");
 
-        texte_nb_chiffres_haut.setText("jLabel1");
+        texte_nb_chiffres_haut.setText("0");
 
-        texte_nb_chiffres_bas.setText("jLabel2");
+        texte_nb_chiffres_bas.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(42, 42, 42)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(texte_lbl_nb_chiffres_bas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(texte_nb_chiffres_bas, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(texte_lbl_nb_chiffres_exacts, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(texte_nb_chiffres_exacts, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(texte_lbl_nb_chiffres_haut, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(texte_nb_chiffres_haut, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(texte_chiffre_0, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(46, 46, 46)
-                    .addComponent(texte_chiffre_1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(55, 55, 55)
-                    .addComponent(texte_chiffre_2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(54, 54, 54)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(texte_tentatives, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(texte_nb_tentatives, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bouton_recommencer)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(texte_chiffre_3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                            .addComponent(bouton_tester)))
-                    .addContainerGap()))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(down_chiffre_1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(down_chiffre_2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(down_chiffre_3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(texte_intro, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(up_chiffre_1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(up_chiffre_2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(up_chiffre_3)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(down_chiffre_4)
-                    .addComponent(up_chiffre_4))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(down_chiffre_1)
+                            .addComponent(up_chiffre_1))
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(down_chiffre_2)
+                            .addComponent(up_chiffre_2))
+                        .addGap(84, 84, 84)
+                        .addComponent(up_chiffre_3))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(texte_lbl_nb_chiffres_haut, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(texte_lbl_nb_chiffres_exacts, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(texte_lbl_nb_chiffres_bas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(texte_nb_chiffres_haut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(texte_nb_chiffres_exacts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(texte_nb_chiffres_bas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(texte_chiffre_0, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(46, 46, 46)
+                            .addComponent(texte_chiffre_1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(84, 84, 84)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(down_chiffre_3)
+                                .addComponent(texte_chiffre_2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(54, 54, 54)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(texte_chiffre_3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(bouton_tester))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(down_chiffre_4)
+                                    .addComponent(texte_nb_tentatives, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(bouton_recommencer)
+                                    .addComponent(texte_tentatives, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(up_chiffre_4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(texte_intro, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(texte_intro)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(up_chiffre_1)
-                    .addComponent(up_chiffre_2)
-                    .addComponent(up_chiffre_3)
-                    .addComponent(up_chiffre_4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(texte_intro)
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(up_chiffre_1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(up_chiffre_4)
+                                .addComponent(up_chiffre_3))))
+                    .addComponent(up_chiffre_2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(texte_chiffre_0)
                     .addComponent(texte_chiffre_1)
                     .addComponent(texte_chiffre_2)
                     .addComponent(texte_chiffre_3)
                     .addComponent(bouton_tester))
-                .addGap(8, 8, 8)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -252,12 +281,11 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addComponent(texte_lbl_nb_chiffres_haut)
                     .addComponent(texte_nb_chiffres_haut))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(texte_nb_tentatives)
-                .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(texte_lbl_nb_chiffres_bas)
-                    .addComponent(texte_nb_chiffres_bas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(texte_nb_tentatives)
+                    .addComponent(texte_nb_chiffres_bas)
+                    .addComponent(texte_lbl_nb_chiffres_bas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(bouton_recommencer)
                 .addGap(16, 16, 16))
         );
@@ -266,43 +294,75 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void up_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_1ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_0.getText());
+    texte_chiffre_0.setText(String.valueOf(incrementer(v)));
     }//GEN-LAST:event_up_chiffre_1ActionPerformed
 
     private void up_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_2ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_1.getText());
+    texte_chiffre_1.setText(String.valueOf(incrementer(v)));
     }//GEN-LAST:event_up_chiffre_2ActionPerformed
 
     private void up_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_3ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_2.getText());
+    texte_chiffre_2.setText(String.valueOf(incrementer(v)));
     }//GEN-LAST:event_up_chiffre_3ActionPerformed
 
     private void up_chiffre_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_up_chiffre_4ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_3.getText());
+    texte_chiffre_3.setText(String.valueOf(incrementer(v)));
     }//GEN-LAST:event_up_chiffre_4ActionPerformed
 
     private void down_chiffre_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_1ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_0.getText());
+    texte_chiffre_0.setText(String.valueOf(decrementer(v)));
     }//GEN-LAST:event_down_chiffre_1ActionPerformed
 
     private void down_chiffre_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_2ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_1.getText());
+    texte_chiffre_1.setText(String.valueOf(decrementer(v)));
     }//GEN-LAST:event_down_chiffre_2ActionPerformed
 
     private void down_chiffre_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_3ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_2.getText());
+    texte_chiffre_2.setText(String.valueOf(decrementer(v)));
     }//GEN-LAST:event_down_chiffre_3ActionPerformed
 
     private void down_chiffre_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_down_chiffre_4ActionPerformed
-        // TODO add your handling code here:
+    int v = Integer.parseInt(texte_chiffre_3.getText());
+    texte_chiffre_3.setText(String.valueOf(decrementer(v)));
     }//GEN-LAST:event_down_chiffre_4ActionPerformed
 
     private void bouton_testerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_testerActionPerformed
-        // TODO add your handling code here:
+    int[] prop = new int[4];
+    prop[0] = Integer.parseInt(texte_chiffre_0.getText());
+    prop[1] = Integer.parseInt(texte_chiffre_1.getText());
+    prop[2] = Integer.parseInt(texte_chiffre_2.getText());
+    prop[3] = Integer.parseInt(texte_chiffre_3.getText());
+
+    int[] res = jeu.testerProposition(prop);
+
+
+    texte_nb_chiffres_exacts.setText(String.valueOf(res[0]));
+    texte_nb_chiffres_haut.setText(String.valueOf(res[1]));
+    texte_nb_chiffres_bas.setText(String.valueOf(res[2]));
+
+    texte_nb_tentatives.setText(jeu.getNbTentatives() + " sur " + jeu.getMaxTentatives());
+
+    if (jeu.estGagne(res)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Bravo, vous avez trouvé le code !");
+        bouton_tester.setEnabled(false);
+    } else if (jeu.estFini(res)) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Perdu, nombre de tentatives atteint.");
+        bouton_tester.setEnabled(false);
+    }
     }//GEN-LAST:event_bouton_testerActionPerformed
 
     private void bouton_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_recommencerActionPerformed
-        // TODO add your handling code here:
+    jeu = new Métier();      // nouveau code secret
+    initialiserInterface();
+    bouton_tester.setEnabled(true);
+
     }//GEN-LAST:event_bouton_recommencerActionPerformed
 
     /**
