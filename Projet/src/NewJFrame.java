@@ -9,7 +9,7 @@
  */
 
 public class NewJFrame extends javax.swing.JFrame {
-    private Métier jeu;
+    private Cadenas jeu;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame.class.getName());
 
     /**
@@ -17,12 +17,13 @@ public class NewJFrame extends javax.swing.JFrame {
      */
 public NewJFrame() {
     initComponents();
-    jeu = new Métier();          // adapte au constructeur de ta classe
+    jeu = new Cadenas(10);        // par défaut : mode facile
     initialiserInterface();
 }
 
 private void initialiserInterface() {
-    texte_intro.setText("Trouvez le bon code en moins de 5 tentatives !");
+    texte_intro.setText("Trouvez le bon code en moins de " + jeu.getMaxTentatives() + " tentatives!");
+    texte_nb_tentatives.setText("0 sur " + jeu.getMaxTentatives());
     texte_chiffre_0.setText("0");
     texte_chiffre_1.setText("0");
     texte_chiffre_2.setText("0");
@@ -81,16 +82,27 @@ private int decrementer(int valeur) {
         texte_nb_chiffres_exacts = new javax.swing.JLabel();
         texte_nb_chiffres_haut = new javax.swing.JLabel();
         texte_nb_chiffres_bas = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        bouton_facile = new javax.swing.JButton();
+        bouton_normal = new javax.swing.JButton();
+        bouton_difficile = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         texte_chiffre_0.setText("0");
+        getContentPane().add(texte_chiffre_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 101, 37, -1));
 
         texte_chiffre_1.setText("0");
+        getContentPane().add(texte_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 101, 37, -1));
 
         texte_chiffre_2.setText("0");
+        getContentPane().add(texte_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 101, 37, -1));
 
         texte_chiffre_3.setText("0");
+        getContentPane().add(texte_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 101, 37, -1));
 
         bouton_tester.setText("Tester");
         bouton_tester.addActionListener(new java.awt.event.ActionListener() {
@@ -98,14 +110,19 @@ private int decrementer(int valeur) {
                 bouton_testerActionPerformed(evt);
             }
         });
+        getContentPane().add(bouton_tester, new org.netbeans.lib.awtextra.AbsoluteConstraints(344, 98, -1, -1));
 
         texte_lbl_nb_chiffres_exacts.setText("Nombre de chiffres exacts:");
+        getContentPane().add(texte_lbl_nb_chiffres_exacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 187, -1, -1));
 
         texte_lbl_nb_chiffres_haut.setText("Nombre de chiffres trop hauts:");
+        getContentPane().add(texte_lbl_nb_chiffres_haut, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 215, 196, -1));
 
         texte_lbl_nb_chiffres_bas.setText("Nombre de chiffres trop bas:");
+        getContentPane().add(texte_lbl_nb_chiffres_bas, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 237, 198, -1));
 
         texte_tentatives.setText("Tentatives");
+        getContentPane().add(texte_tentatives, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 180, 68, -1));
 
         bouton_recommencer.setText("Recommencer");
         bouton_recommencer.addActionListener(new java.awt.event.ActionListener() {
@@ -113,8 +130,10 @@ private int decrementer(int valeur) {
                 bouton_recommencerActionPerformed(evt);
             }
         });
+        getContentPane().add(bouton_recommencer, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 293, -1, -1));
 
         texte_nb_tentatives.setText("0 sur 5");
+        getContentPane().add(texte_nb_tentatives, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 237, 68, -1));
 
         up_chiffre_1.setText("▲");
         up_chiffre_1.addActionListener(new java.awt.event.ActionListener() {
@@ -122,6 +141,7 @@ private int decrementer(int valeur) {
                 up_chiffre_1ActionPerformed(evt);
             }
         });
+        getContentPane().add(up_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 69, -1, -1));
 
         up_chiffre_2.setText("▲");
         up_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +149,7 @@ private int decrementer(int valeur) {
                 up_chiffre_2ActionPerformed(evt);
             }
         });
+        getContentPane().add(up_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 69, -1, -1));
 
         up_chiffre_3.setText("▲");
         up_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
@@ -136,6 +157,7 @@ private int decrementer(int valeur) {
                 up_chiffre_3ActionPerformed(evt);
             }
         });
+        getContentPane().add(up_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(196, 69, -1, -1));
 
         up_chiffre_4.setText("▲");
         up_chiffre_4.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +165,7 @@ private int decrementer(int valeur) {
                 up_chiffre_4ActionPerformed(evt);
             }
         });
+        getContentPane().add(up_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 69, -1, -1));
 
         down_chiffre_4.setText("▼");
         down_chiffre_4.addActionListener(new java.awt.event.ActionListener() {
@@ -150,6 +173,7 @@ private int decrementer(int valeur) {
                 down_chiffre_4ActionPerformed(evt);
             }
         });
+        getContentPane().add(down_chiffre_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(301, 139, -1, -1));
 
         down_chiffre_3.setText("▼");
         down_chiffre_3.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +181,7 @@ private int decrementer(int valeur) {
                 down_chiffre_3ActionPerformed(evt);
             }
         });
+        getContentPane().add(down_chiffre_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 139, -1, -1));
 
         down_chiffre_2.setText("▼");
         down_chiffre_2.addActionListener(new java.awt.event.ActionListener() {
@@ -164,6 +189,7 @@ private int decrementer(int valeur) {
                 down_chiffre_2ActionPerformed(evt);
             }
         });
+        getContentPane().add(down_chiffre_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 139, -1, -1));
 
         down_chiffre_1.setText("▼");
         down_chiffre_1.addActionListener(new java.awt.event.ActionListener() {
@@ -171,124 +197,46 @@ private int decrementer(int valeur) {
                 down_chiffre_1ActionPerformed(evt);
             }
         });
+        getContentPane().add(down_chiffre_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 139, -1, -1));
 
-        texte_intro.setText("Trouvez le bon code en moins de 5 tentatives!");
+        texte_intro.setText("Trouvez le bon code en moins de 10 tentatives!");
+        getContentPane().add(texte_intro, new org.netbeans.lib.awtextra.AbsoluteConstraints(86, 21, -1, -1));
 
         texte_nb_chiffres_exacts.setText("0");
+        getContentPane().add(texte_nb_chiffres_exacts, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 187, 37, -1));
 
         texte_nb_chiffres_haut.setText("0");
+        getContentPane().add(texte_nb_chiffres_haut, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 215, 37, -1));
 
         texte_nb_chiffres_bas.setText("0");
+        getContentPane().add(texte_nb_chiffres_bas, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 237, 37, -1));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        getContentPane().add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 120, -1, -1));
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(down_chiffre_1)
-                            .addComponent(up_chiffre_1))
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(down_chiffre_2)
-                            .addComponent(up_chiffre_2))
-                        .addGap(84, 84, 84)
-                        .addComponent(up_chiffre_3))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(texte_lbl_nb_chiffres_haut, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(texte_lbl_nb_chiffres_exacts, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(texte_lbl_nb_chiffres_bas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(texte_nb_chiffres_haut, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(texte_nb_chiffres_exacts, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(texte_nb_chiffres_bas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(texte_chiffre_0, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(46, 46, 46)
-                            .addComponent(texte_chiffre_1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(84, 84, 84)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(down_chiffre_3)
-                                .addComponent(texte_chiffre_2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(54, 54, 54)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(texte_chiffre_3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(bouton_tester))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(down_chiffre_4)
-                                    .addComponent(texte_nb_tentatives, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(bouton_recommencer)
-                                    .addComponent(texte_tentatives, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(up_chiffre_4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(86, 86, 86)
-                .addComponent(texte_intro, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(texte_intro)
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(up_chiffre_1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(up_chiffre_4)
-                                .addComponent(up_chiffre_3))))
-                    .addComponent(up_chiffre_2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(texte_chiffre_0)
-                    .addComponent(texte_chiffre_1)
-                    .addComponent(texte_chiffre_2)
-                    .addComponent(texte_chiffre_3)
-                    .addComponent(bouton_tester))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(texte_lbl_nb_chiffres_exacts)
-                            .addComponent(texte_nb_chiffres_exacts))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(down_chiffre_4)
-                            .addComponent(down_chiffre_3)
-                            .addComponent(down_chiffre_2)
-                            .addComponent(down_chiffre_1))
-                        .addGap(18, 18, 18)
-                        .addComponent(texte_tentatives)
-                        .addGap(19, 19, 19)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(texte_lbl_nb_chiffres_haut)
-                    .addComponent(texte_nb_chiffres_haut))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(texte_nb_tentatives)
-                    .addComponent(texte_nb_chiffres_bas)
-                    .addComponent(texte_lbl_nb_chiffres_bas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(bouton_recommencer)
-                .addGap(16, 16, 16))
-        );
+        bouton_facile.setText("Facile");
+        bouton_facile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bouton_facileActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bouton_facile, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, -1, -1));
+
+        bouton_normal.setText("Normal");
+        bouton_normal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bouton_normalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bouton_normal, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, -1, -1));
+
+        bouton_difficile.setText("Difficile");
+        bouton_difficile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bouton_difficileActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bouton_difficile, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -359,11 +307,29 @@ private int decrementer(int valeur) {
     }//GEN-LAST:event_bouton_testerActionPerformed
 
     private void bouton_recommencerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_recommencerActionPerformed
-    jeu = new Métier();      // nouveau code secret
+    jeu = new Cadenas();      // nouveau code secret
     initialiserInterface();
     bouton_tester.setEnabled(true);
 
     }//GEN-LAST:event_bouton_recommencerActionPerformed
+
+    private void bouton_facileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_facileActionPerformed
+    jeu = new Cadenas(10);
+    initialiserInterface();
+    bouton_tester.setEnabled(true);
+    }//GEN-LAST:event_bouton_facileActionPerformed
+
+    private void bouton_normalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_normalActionPerformed
+    jeu = new Cadenas(5);
+    initialiserInterface();
+    bouton_tester.setEnabled(true);
+    }//GEN-LAST:event_bouton_normalActionPerformed
+
+    private void bouton_difficileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bouton_difficileActionPerformed
+    jeu = new Cadenas(3);
+    initialiserInterface();
+    bouton_tester.setEnabled(true);
+    }//GEN-LAST:event_bouton_difficileActionPerformed
 
     /**
      * @param args the command line arguments
@@ -391,12 +357,18 @@ private int decrementer(int valeur) {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bouton_difficile;
+    private javax.swing.JButton bouton_facile;
+    private javax.swing.JButton bouton_normal;
     private javax.swing.JButton bouton_recommencer;
     private javax.swing.JButton bouton_tester;
     private javax.swing.JButton down_chiffre_1;
     private javax.swing.JButton down_chiffre_2;
     private javax.swing.JButton down_chiffre_3;
     private javax.swing.JButton down_chiffre_4;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel texte_chiffre_0;
     private javax.swing.JLabel texte_chiffre_1;
     private javax.swing.JLabel texte_chiffre_2;
