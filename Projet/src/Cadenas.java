@@ -17,9 +17,14 @@ public class Cadenas {
     private int nbTentatives;      // tentatives déjà faites
     private int maxTentatives;
 
-    public Cadenas() {
+    public Cadenas(int maxTentatives) {
+        this.maxTentatives = maxTentatives;
         genererCodeSecret();
         nbTentatives = 0;
+    }
+    
+    public Cadenas() {
+        this(10);
     }
 
     private void genererCodeSecret() {
