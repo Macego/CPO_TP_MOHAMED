@@ -61,37 +61,38 @@ public class Partie {
     // Demande un coup au joueur et applique l'effet
     private void jouerUnCoup() {
         Scanner sc = new Scanner(System.in);
+        int ligne = -1;
+        int colonne = -1;
 
-        System.out.println("Tapez L pour ligne, C pour colonne, D pour diagonale descendante, M pour diagonale montante :");
-        String choix = sc.next().toUpperCase();
+        while (true) {
+            try {
+                System.out.println("Numéro de ligne (0 à " + (grille.nbLignes - 1) + ") :");
+                String sLigne = sc.nextLine();
+                ligne = Integer.parseInt(sLigne);
 
-        if (choix.equals("L")) {
-            System.out.println("Numéro de ligne ?");
-            int l = sc.nextInt();
-            grille.activerLigneDeCellules(l);
-        } else if (choix.equals("C")) {
-            System.out.println("Numéro de colonne ?");
-            int c = sc.nextInt();
-            grille.activerColonneDeCellules(c);
-        } else if (choix.equals("D")) {
-            grille.activerDiagonaleDescendante();
-        } else if (choix.equals("M")) {
-            grille.activerDiagonaleMontante();
-        } else {
-            System.out.println("Choix invalide, aucun coup joué.");
-            return;
+                System.out.println("Numéro de colonne (0 à " + (grille.nbColonnes - 1) + ") :");
+                String sCol = sc.nextLine();
+                colonne = Integer.parseInt(sCol);
+
+                if (ligne < 0 || ligne >= grille.nbLignes ||
+                    colonne < 0 || colonne >= grille.nbColonnes) {
+                    System.out.println("Coordonnées hors de la grille, recommence.");
+                } else {
+                    break;
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrée invalide, tape des entiers.");
+            }
         }
 
+        grille.activerCelluleEtVoisins(ligne, colonne);
         nbCoups++;
     }
 
-    // Boucle principale de jeu
     public void lancerPartie() {
         initialiserPartie();
         System.out.println("Grille initiale :");
         System.out.println(grille);
-
-        Scanner sc = new Scanner(System.in);
 
         while (!grille.cellulesToutesEteintes()) {
             System.out.println("Coup numéro " + (nbCoups + 1));
@@ -103,5 +104,7 @@ public class Partie {
         System.out.println("Bravo, toutes les cellules sont éteintes !");
         System.out.println("Nombre de coups joués : " + nbCoups);
     }
-    
 }
+
+    
+
