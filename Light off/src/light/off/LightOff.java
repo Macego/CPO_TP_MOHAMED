@@ -23,6 +23,9 @@ public class LightOff {
     GrilledeJeu g = new GrilledeJeu(5, 5);
     g.melangerMatriceAleatoirement(10);
     System.out.println(g);
+    
+    Partie partie = new Partie();
+        partie.lancerPartie();    
 
 }
         // TODO code application logic here
