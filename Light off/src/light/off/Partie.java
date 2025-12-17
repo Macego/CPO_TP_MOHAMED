@@ -14,21 +14,25 @@ public class Partie {
     public int nbCoups;
     public int nbCoupsMax;
     public int difficulte;
+    public int nbLignes;
+    public int nbColonnes;
     
     public Partie() {
         nbCoups = 0;
+        
     }
 
     public void initialiserPartie() {
         Scanner sc = new Scanner(System.in);
         int taille;
+ 
         
         while (true) {
             System.out.println("Taille de la grille (entre 3 et 10) ?");
             String saisie = sc.nextLine();
             try {
-                taille = Integer.parseInt(saisie);
-                if (taille >= 3 && taille <= 10) {
+                nbLignes = Integer.parseInt(saisie);
+                if (nbLignes >= 3 && nbLignes <= 10) {
                     break;
                 } else {
                     System.out.println("Veuillez entrer un nombre entre 3 et 10.");
@@ -38,6 +42,21 @@ public class Partie {
             }
         }
         
+            while (true) {
+        System.out.println("Nombre de colonnes (entre 3 et 10) ?");
+        String saisie = sc.nextLine();
+        try {
+            nbColonnes = Integer.parseInt(saisie);
+            if (nbColonnes >= 3 && nbColonnes <= 10) {
+                break;
+            } else {
+                System.out.println("Veuillez entrer un nombre entre 3 et 10.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Entrée invalide, tape un entier.");
+        }
+    }
+            
      int nbToursMelange;
         while (true) {
             System.out.println("Niveau de difficulté :");
@@ -63,7 +82,7 @@ public class Partie {
             }
         }
 
-        grille = new GrilledeJeu(taille, taille);
+        grille = new GrilledeJeu(nbLignes, nbColonnes);
         grille.melangerMatriceAleatoirement(nbToursMelange);
         System.out.println("Tu as au maximum " + nbCoupsMax + " coups pour gagner.");
     }
