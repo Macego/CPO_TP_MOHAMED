@@ -8,35 +8,59 @@ package light.off;
  *
  * @author Macéo
  */
+
+/**
+ * Représente une cellule lumineuse qui peut être allumée ou éteinte.
+ */
 public class CelulleLumineuse {
     private boolean etat;  // true = allumée, false = éteinte
 
-    // Constructeur par défaut : cellule éteinte
+
+    /**
+     * Crée une nouvelle cellule initialement éteinte.
+     */
     public CelulleLumineuse() {
         etat = false;
     }
 
-    // Inverse l'état de la cellule
+     /**
+     * Inverse l'état de la cellule.
+     * Si elle est allumée, elle s'éteint, et inversement.
+     */
     public void activerCellule() {
         etat = !etat;
     }
 
-    // Met la cellule à l'état éteint
+     /**
+     * Éteint la cellule (etat = false).
+     */
     public void eteindreCellule() {
         etat = false;
     }
 
-    // Renvoie true si la cellule est éteinte
+    /**
+     * Indique si la cellule est éteinte.
+     *
+     * @return true si la cellule est éteinte, false sinon
+     */
     public boolean estEteint() {
         return !etat;
     }
 
-    // Renvoie l'état brut (true = allumée, false = éteinte)
+    /**
+     * Renvoie l'état brut de la cellule.
+     *
+     * @return true si la cellule est allumée, false sinon
+     */
     public boolean getEtat() {
         return etat;
     }
 
-    // Représentation texte : X = allumée, O = éteinte
+    /**
+     * Renvoie "X" si la cellule est allumée, "O" sinon.
+     *
+     * @return représentation texte de la cellule
+     */
     @Override
     public String toString() {
         if (etat) {

@@ -21,6 +21,13 @@ public class Partie {
         nbCoups = 0;
         
     }
+    
+    public Statistiques stats;
+    
+    public Partie(Statistiques pStats) {
+    nbCoups = 0;
+    stats = pStats;
+}
 
     public void initialiserPartie() {
         Scanner sc = new Scanner(System.in);
@@ -144,6 +151,9 @@ private void afficherScore(boolean victoire) {
     if (!victoire) {
         System.out.println("Tu as dépassé la limite de " + nbCoupsMax + " coups.");
         System.out.println("Partie perdue.");
+         if (stats != null) {
+            stats.enregistrerPartie(false, 0, nbCoups);
+        }
         return;
     }
 
@@ -169,6 +179,10 @@ private void afficherScore(boolean victoire) {
     int score = base + bonusRestants * 10;
 
     System.out.println("Score final : " + score);
+    
+    if (stats != null) {
+        stats.enregistrerPartie(true, score, nbCoups);
+    }
 }
 }
     
