@@ -104,17 +104,53 @@ public class Partie {
         System.out.println("Grille initiale :");
         System.out.println(grille);
 
-        while (!grille.cellulesToutesEteintes()) {
-            System.out.println("Coup numéro " + (nbCoups + 1));
-            jouerUnCoup();
-            System.out.println("État de la grille :");
-            System.out.println(grille);
+        while (!grille.cellulesToutesEteintes() && nbCoups < nbCoupsMax) {
+        System.out.println("Coup numéro " + (nbCoups + 1) + " / " + nbCoupsMax);
+        jouerUnCoup();
+        System.out.println("État de la grille :");
+        System.out.println(grille);
         }
-
+        
+            if (grille.cellulesToutesEteintes()) {
+        afficherScore(true);
+    } else {
+        afficherScore(false);
+    }
+     
         System.out.println("Bravo, toutes les cellules sont éteintes !");
         System.out.println("Nombre de coups joués : " + nbCoups);
     }
-}
 
+private void afficherScore(boolean victoire) {
+    if (!victoire) {
+        System.out.println("Tu as dépassé la limite de " + nbCoupsMax + " coups.");
+        System.out.println("Partie perdue.");
+        return;
+    }
+
+    System.out.println("Bravo, toutes les cellules sont éteintes !");
+    System.out.println("Nombre de coups joués : " + nbCoups);
+
+    // Exemple de calcul de score simple :
+    // base selon la difficulté, puis malus selon les coups utilisés
+    int base;
+    if (difficulte == 1) {
+        base = 100;
+    } else if (difficulte == 2) {
+        base = 200;
+    } else {
+        base = 300;
+    }
+
+    int bonusRestants = (nbCoupsMax - nbCoups);
+    if (bonusRestants < 0) {
+        bonusRestants = 0;
+    }
+
+    int score = base + bonusRestants * 10;
+
+    System.out.println("Score final : " + score);
+}
+}
     
 
