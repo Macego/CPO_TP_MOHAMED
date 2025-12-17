@@ -12,7 +12,9 @@ import java.util.Scanner;
 public class Partie {
      public GrilledeJeu grille;
     public int nbCoups;
-
+    public int nbCoupsMax;
+    public int difficulte;
+    
     public Partie() {
         nbCoups = 0;
     }
@@ -20,6 +22,7 @@ public class Partie {
     public void initialiserPartie() {
         Scanner sc = new Scanner(System.in);
         int taille;
+        
         while (true) {
             System.out.println("Taille de la grille (entre 3 et 10) ?");
             String saisie = sc.nextLine();
@@ -41,13 +44,19 @@ public class Partie {
             System.out.println("1 = facile, 2 = moyen, 3 = difficile");
             String saisie = sc.nextLine();
             if (saisie.equals("1")) {
+                difficulte = 1;
                 nbToursMelange = 5;
+                nbCoupsMax = 20;
                 break;
             } else if (saisie.equals("2")) {
+                difficulte = 2;
                 nbToursMelange = 10;
+                nbCoupsMax = 15;
                 break;
             } else if (saisie.equals("3")) {
+                difficulte = 3;
                 nbToursMelange = 20;
+                nbCoupsMax = 12;
                 break;
             } else {
                 System.out.println("Choix invalide, réponds par 1, 2 ou 3.");
@@ -56,6 +65,7 @@ public class Partie {
 
         grille = new GrilledeJeu(taille, taille);
         grille.melangerMatriceAleatoirement(nbToursMelange);
+        System.out.println("Tu as au maximum " + nbCoupsMax + " coups pour gagner.");
     }
 
     // Demande un coup au joueur et applique l'effet
