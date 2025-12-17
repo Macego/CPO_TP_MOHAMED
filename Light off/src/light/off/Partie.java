@@ -14,12 +14,48 @@ public class Partie {
     public int nbCoups;
 
     public Partie() {
-        grille = new GrilledeJeu(5, 5); // 5x5 comme demandé
         nbCoups = 0;
     }
 
     public void initialiserPartie() {
-        grille.melangerMatriceAleatoirement(10);
+        Scanner sc = new Scanner(System.in);
+        int taille;
+        while (true) {
+            System.out.println("Taille de la grille (entre 3 et 10) ?");
+            String saisie = sc.nextLine();
+            try {
+                taille = Integer.parseInt(saisie);
+                if (taille >= 3 && taille <= 10) {
+                    break;
+                } else {
+                    System.out.println("Veuillez entrer un nombre entre 3 et 10.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrée invalide, tape un entier.");
+            }
+        }
+        
+     int nbToursMelange;
+        while (true) {
+            System.out.println("Niveau de difficulté :");
+            System.out.println("1 = facile, 2 = moyen, 3 = difficile");
+            String saisie = sc.nextLine();
+            if (saisie.equals("1")) {
+                nbToursMelange = 5;
+                break;
+            } else if (saisie.equals("2")) {
+                nbToursMelange = 10;
+                break;
+            } else if (saisie.equals("3")) {
+                nbToursMelange = 20;
+                break;
+            } else {
+                System.out.println("Choix invalide, réponds par 1, 2 ou 3.");
+            }
+        }
+
+        grille = new GrilledeJeu(taille, taille);
+        grille.melangerMatriceAleatoirement(nbToursMelange);
     }
 
     // Demande un coup au joueur et applique l'effet
