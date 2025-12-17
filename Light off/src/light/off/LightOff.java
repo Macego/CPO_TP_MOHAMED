@@ -14,7 +14,12 @@ public class LightOff {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+    CelulleLumineuse c1 = new CelulleLumineuse();
+    System.out.println(c1);  // O
+    c1.activerCellule();
+    System.out.println(c1);  // X
+}
         // TODO code application logic here
     }
     
-}
+
