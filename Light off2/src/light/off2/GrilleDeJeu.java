@@ -97,30 +97,29 @@ public class GrilleDeJeu {
         }
     }
 
-    public void melangerMatriceAleatoirement(int nbTours) {
-        eteindreToutesLesCellules();
-        for (int i = 0; i < nbTours; i++) {
-            activerLigneColonneOuDiagonaleAleatoire();
-        }
+public void melangerMatriceAleatoirement(int nbTours) {
+    eteindreToutesLesCellules();         
+    Random rand = new Random();
+
+    for (int k = 0; k < nbTours; k++) {
+        int i = rand.nextInt(nbLignes);   
+        int j = rand.nextInt(nbColonnes);
+        activerCelluleEtVoisins(i, j);    
     }
+}
     
-    public void activerCelluleEtVoisins(int ligne, int colonne) {
-    // cellule cliquée
+public void activerCelluleEtVoisins(int ligne, int colonne) {
     matriceCellules[ligne][colonne].activerCellule();
 
-    // voisin du haut
     if (ligne - 1 >= 0) {
         matriceCellules[ligne - 1][colonne].activerCellule();
     }
-    // voisin du bas
     if (ligne + 1 < nbLignes) {
         matriceCellules[ligne + 1][colonne].activerCellule();
     }
-    // voisin de gauche
     if (colonne - 1 >= 0) {
         matriceCellules[ligne][colonne - 1].activerCellule();
     }
-    // voisin de droite
     if (colonne + 1 < nbColonnes) {
         matriceCellules[ligne][colonne + 1].activerCellule();
     }
