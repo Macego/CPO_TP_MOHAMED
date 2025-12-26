@@ -6,6 +6,8 @@ package light.off2;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class CelluleGraphique extends JButton {
 
@@ -27,16 +29,15 @@ public class CelluleGraphique extends JButton {
         this.largeur = l;
         this.hauteur = h;
         this.celluleLumineuseAssociee = celluleLumineuseAssociee;
-
-        this.setText(celluleLumineuseAssociee.toString());
+                this.setBorderPainted(false);
+        this.setFocusPainted(false);
+        this.setContentAreaFilled(false);
 
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 grille.activerCelluleEtVoisins(ligne, colonne);
-                // le modèle a changé, on met à jour notre affichage
-                setText(celluleLumineuseAssociee.toString());
-                // demander aussi à la fenêtre de tout repeindre
+                repaint();
                 getParent().repaint();
             }
         });
@@ -45,6 +46,15 @@ public class CelluleGraphique extends JButton {
     @Override
     protected void paintComponent(java.awt.Graphics g) {
         super.paintComponent(g);
-        this.setText(celluleLumineuseAssociee.toString());
+        int w = getWidth();
+        int h = getHeight();
+
+        if (celluleLumineuseAssociee.getEtat()) {
+            g.setColor(Color.YELLOW);      // allumé
+        } else {
+            g.setColor(new Color(0, 100, 0)); // vert foncé éteint
+        }
+
+        g.fillOval(2, 2, w - 4, h - 4);
     }
 }
