@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package light.off2;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -18,41 +19,44 @@ public class CelluleGraphique extends JButton {
     private GrilleDeJeu grille;
     private int ligne;
     private int colonne;
+    private FenetrePrincipale fenetre;   // référence vers la fenêtre
 
-    public CelluleGraphique(GrilleDeJeu grille, int ligne, int colonne,
+    public CelluleGraphique(FenetrePrincipale fenetre,
+                            GrilleDeJeu grille, int ligne, int colonne,
                             CelluleLumineuse celluleLumineuseAssociee,
                             int l, int h) {
         super();
+        this.fenetre = fenetre;
         this.grille = grille;
         this.ligne = ligne;
         this.colonne = colonne;
         this.largeur = l;
         this.hauteur = h;
         this.celluleLumineuseAssociee = celluleLumineuseAssociee;
-                this.setBorderPainted(false);
+
+        this.setBorderPainted(false);
         this.setFocusPainted(false);
         this.setContentAreaFilled(false);
 
         this.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                grille.activerCelluleEtVoisins(ligne, colonne);
-                repaint();
-                getParent().repaint();
+                // la fenêtre gère le coup, le score et la fin de partie
+                fenetre.jouerUnCoupSurCellule(ligne, colonne);
             }
         });
     }
 
     @Override
-    protected void paintComponent(java.awt.Graphics g) {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         int w = getWidth();
         int h = getHeight();
 
         if (celluleLumineuseAssociee.getEtat()) {
-            g.setColor(Color.YELLOW);      // allumé
+            g.setColor(Color.YELLOW);          // allumé
         } else {
-            g.setColor(new Color(0, 100, 0)); // vert foncé éteint
+            g.setColor(new Color(0, 100, 0));  // vert foncé éteint
         }
 
         g.fillOval(2, 2, w - 4, h - 4);

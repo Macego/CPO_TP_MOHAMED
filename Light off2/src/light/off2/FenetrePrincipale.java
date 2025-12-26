@@ -29,6 +29,7 @@ private int nbColonnes = 5;
     nbColonnes = 5;
     grille = new GrilleDeJeu(nbLignes, nbColonnes);
     nbCoups = 0;
+    labelScore.setText("Score : 0");
     PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
 PanneauBoutonsVerticaux.setLayout(new GridLayout(nbLignes, 1));
 PanneauBoutonsHorizontaux.setLayout(new GridLayout(1, nbColonnes));
@@ -43,6 +44,7 @@ initialiserBoutonsColonnes();
     grille.eteindreToutesLesCellules();
     grille.melangerMatriceAleatoirement(10); // tu peux changer le 10
     nbCoups = 0;
+    labelScore.setText("Score : 0");
 }
 
     private void initialiserGrilleGraphique() {
@@ -117,6 +119,21 @@ initialiserBoutonsColonnes();
     PanneauBoutonsHorizontaux.revalidate();
     PanneauBoutonsHorizontaux.repaint();
 }
+    
+    public void jouerUnCoupSurCellule(int ligne, int colonne) {
+    grille.activerCelluleEtVoisins(ligne, colonne);
+    nbCoups++;
+    labelScore.setText("Score : " + nbCoups);
+    PanneauGrille.repaint();
+
+    if (grille.cellulesToutesEteintes()) {
+        javax.swing.JOptionPane.showMessageDialog(
+            this,
+            "Bravo ! Tu as éteint toutes les lumières en " + nbCoups + " coups."
+        );
+    }
+}
+
 
 
     /**
