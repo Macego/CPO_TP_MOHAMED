@@ -14,7 +14,10 @@ import java.awt.*;
 public class FenetreJeu extends javax.swing.JFrame {
     private Partie partie;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FenetreJeu.class.getName());
-
+    private GrilledeJeu grille;
+    private int nbLignes = 5;
+    private int nbColonnes = 5;
+    
     /**
      * Creates new form FenetreJeu
      */
@@ -27,6 +30,14 @@ public class FenetreJeu extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
         initComponents();
+        
+        nbLignes = 5;
+        nbColonnes = 5;
+        grille = new GrilledeJeu(nbLignes, nbColonnes);
+        grille.melangerMatriceAleatoirement(10);
+        
+        PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
+        
     }
 
     /**
