@@ -21,7 +21,8 @@ public class Partie {
 
     public void initialiserPartie() {
         grille.eteindreToutesLesCellules();
-        grille.melangerMatriceAleatoirement(10); // nombre de tours arbitraire
+        grille.melangerMatriceAleatoirement(10);
+        nbCoups = 0;
     }
 
     private void jouerUnCoup(Scanner sc) {
