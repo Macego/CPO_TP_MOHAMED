@@ -103,6 +103,29 @@ public class GrilleDeJeu {
             activerLigneColonneOuDiagonaleAleatoire();
         }
     }
+    
+    public void activerCelluleEtVoisins(int ligne, int colonne) {
+    // cellule cliquée
+    matriceCellules[ligne][colonne].activerCellule();
+
+    // voisin du haut
+    if (ligne - 1 >= 0) {
+        matriceCellules[ligne - 1][colonne].activerCellule();
+    }
+    // voisin du bas
+    if (ligne + 1 < nbLignes) {
+        matriceCellules[ligne + 1][colonne].activerCellule();
+    }
+    // voisin de gauche
+    if (colonne - 1 >= 0) {
+        matriceCellules[ligne][colonne - 1].activerCellule();
+    }
+    // voisin de droite
+    if (colonne + 1 < nbColonnes) {
+        matriceCellules[ligne][colonne + 1].activerCellule();
+    }
+}
+
 
     @Override
     public String toString() {
