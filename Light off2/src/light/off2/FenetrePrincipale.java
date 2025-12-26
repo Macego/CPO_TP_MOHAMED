@@ -134,11 +134,22 @@ private void initialiserGrilleGraphique() {
     labelScore.setText("Score : " + nbCoups);
     PanneauGrille.repaint();
 
+    // test de victoire
     if (grille.cellulesToutesEteintes()) {
-        javax.swing.JOptionPane.showMessageDialog(
+        int choix = javax.swing.JOptionPane.showConfirmDialog(
             this,
-            "Bravo ! Tu as éteint toutes les lumières en " + nbCoups + " coups."
+            "Bravo ! Tu as éteint toutes les lumières en " + nbCoups + " coups.\n"
+            + "Veux-tu recommencer une partie ?",
+            "Victoire",
+            javax.swing.JOptionPane.YES_NO_OPTION
         );
+
+        if (choix == javax.swing.JOptionPane.YES_OPTION) {
+            initialiserPartie();      
+            PanneauGrille.repaint();
+        } else {
+           
+        }
     }
 }
 
@@ -220,8 +231,8 @@ private void initialiserGrilleGraphique() {
                         .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(74, 74, 74))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(labelScore, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))))
+                        .addComponent(labelScore, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
