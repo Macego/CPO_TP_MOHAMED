@@ -1,9 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package light.off;
-import java.util.Scanner; 
+
+import java.util.Scanner;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author Macéo
@@ -11,9 +10,9 @@ import java.util.Scanner;
 public class LightOff {
 
     /**
-     * @param args the command line arguments
+     * Lancement en mode CONSOLE (ancien main).
      */
-    public static void main(String[] args) {
+    public static void mainConsole(String[] args) {
         Scanner sc = new Scanner(System.in);
         Statistiques stats = new Statistiques();
 
@@ -34,21 +33,20 @@ public class LightOff {
         }
 
         System.out.println("Merci d'avoir joué !");
-        
-    CelulleLumineuse c1 = new CelulleLumineuse();
-    System.out.println(c1);  // O
-    c1.activerCellule();
-    System.out.println(c1);  // X
-
-    GrilledeJeu g = new GrilledeJeu(5, 5);
-    g.melangerMatriceAleatoirement(10);
-    System.out.println(g);
-    
-    Partie partie = new Partie();
-        partie.lancerPartie();    
-
-}
-        // TODO code application logic here
     }
-    
+
+    /**
+     * Lancement en mode GRAPHIQUE.
+     */
+    public static void main(String[] args) {
+        // si tes statistiques sont utilisées dans Partie, adapte le constructeur
+        Statistiques stats = new Statistiques();
+        Partie partie = new Partie(stats);
+
+        SwingUtilities.invokeLater(() -> {
+            FenetreJeu f = new FenetreJeu(partie); // ta JFrame
+            f.setVisible(true);
+        });
+    }
+}
 
