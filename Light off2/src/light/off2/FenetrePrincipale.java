@@ -130,23 +130,25 @@ private void initialiserGrilleGraphique() {
     PanneauGrille.repaint();
 
     // test de victoire
-    if (grille.cellulesToutesEteintes()) {
-        int choix = javax.swing.JOptionPane.showConfirmDialog(
-            this,
-            "Bravo ! Tu as éteint toutes les lumières en " + nbCoups + " coups.\n"
-            + "Veux-tu recommencer une partie ?",
-            "Victoire",
-            javax.swing.JOptionPane.YES_NO_OPTION
-        );
+if (grille.cellulesToutesEteintes()) {
+    int choix = javax.swing.JOptionPane.showConfirmDialog(
+        this,
+        "Bravo ! Tu as éteint toutes les lumières en " + nbCoups + " coups.\n"
+        + "Veux-tu recommencer une partie ?",
+        "Victoire",
+        javax.swing.JOptionPane.YES_NO_OPTION
+    );
 
-        if (choix == javax.swing.JOptionPane.YES_OPTION) {
-            initialiserPartie();      
-            PanneauGrille.repaint();
-        } else {
-           
-        }
+    if (choix == javax.swing.JOptionPane.YES_OPTION) {
+        choisirDifficulte();                          // redemander difficulté
+        grille = new GrilleDeJeu(nbLignes, nbColonnes);
+        PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
+        initialiserPartie();
+        initialiserGrilleGraphique();                // recrée les boutons
     }
 }
+    }
+
     
     private void choisirDifficulte() {
     String[] options = {"Facile", "Moyen", "Difficile"};
