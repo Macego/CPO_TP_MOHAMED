@@ -4,6 +4,9 @@
  */
 package light.off2;
 import java.awt.GridLayout;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -26,9 +29,13 @@ private int nbColonnes = 5;
     grille = new GrilleDeJeu(nbLignes, nbColonnes);
     nbCoups = 0;
     PanneauGrille.setLayout(new GridLayout(nbLignes, nbColonnes));
+PanneauBoutonsVerticaux.setLayout(new GridLayout(nbLignes, 1));
+PanneauBoutonsHorizontaux.setLayout(new GridLayout(1, nbColonnes));
 
-    initialiserPartie();  
-    initialiserGrilleGraphique();
+initialiserPartie();
+initialiserGrilleGraphique();
+initialiserBoutonsLignes();
+initialiserBoutonsColonnes();
     }
 
     public void initialiserPartie() {
@@ -50,6 +57,35 @@ private int nbColonnes = 5;
     PanneauGrille.revalidate();
     PanneauGrille.repaint();
 }
+    private void initialiserBoutonsLignes() {
+    PanneauBoutonsVerticaux.removeAll();
+
+    for (int i = 0; i < nbLignes; i++) {
+        JButton boutonLigne = new JButton("L" + i);
+
+        final int j = i; // index de ligne capturé pour l'action
+        ActionListener ecouteurClick = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                grille.activerLigneDeCellules(j);
+                nbCoups++;
+                PanneauGrille.repaint();
+
+                if (grille.cellulesToutesEteintes()) {
+                    javax.swing.JOptionPane.showMessageDialog(
+                        FenetrePrincipale.this,
+                        "Bravo, grille éteinte en " + nbCoups + " coups !");
+                }
+            }
+        };
+
+        boutonLigne.addActionListener(ecouteurClick);
+        PanneauBoutonsVerticaux.add(boutonLigne);
+    }
+
+    PanneauBoutonsVerticaux.revalidate();
+    PanneauBoutonsVerticaux.repaint();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,38 +97,73 @@ private int nbColonnes = 5;
     private void initComponents() {
 
         PanneauGrille = new javax.swing.JPanel();
+        PanneauBoutonsVerticaux = new javax.swing.JPanel();
+        PanneauBoutonsHorizontaux = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         PanneauGrille.setBackground(new java.awt.Color(0, 153, 51));
         PanneauGrille.setPreferredSize(new java.awt.Dimension(400, 400));
 
+        javax.swing.GroupLayout PanneauBoutonsVerticauxLayout = new javax.swing.GroupLayout(PanneauBoutonsVerticaux);
+        PanneauBoutonsVerticaux.setLayout(PanneauBoutonsVerticauxLayout);
+        PanneauBoutonsVerticauxLayout.setHorizontalGroup(
+            PanneauBoutonsVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PanneauBoutonsVerticauxLayout.setVerticalGroup(
+            PanneauBoutonsVerticauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout PanneauBoutonsHorizontauxLayout = new javax.swing.GroupLayout(PanneauBoutonsHorizontaux);
+        PanneauBoutonsHorizontaux.setLayout(PanneauBoutonsHorizontauxLayout);
+        PanneauBoutonsHorizontauxLayout.setHorizontalGroup(
+            PanneauBoutonsHorizontauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        PanneauBoutonsHorizontauxLayout.setVerticalGroup(
+            PanneauBoutonsHorizontauxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout PanneauGrilleLayout = new javax.swing.GroupLayout(PanneauGrille);
         PanneauGrille.setLayout(PanneauGrilleLayout);
         PanneauGrilleLayout.setHorizontalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(PanneauGrilleLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(PanneauBoutonsVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanneauGrilleLayout.createSequentialGroup()
+                .addContainerGap(159, Short.MAX_VALUE)
+                .addComponent(PanneauBoutonsHorizontaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(141, 141, 141))
         );
         PanneauGrilleLayout.setVerticalGroup(
             PanneauGrilleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(PanneauGrilleLayout.createSequentialGroup()
+                .addComponent(PanneauBoutonsVerticaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 194, Short.MAX_VALUE)
+                .addComponent(PanneauBoutonsHorizontaux, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(75, 75, 75)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(76, Short.MAX_VALUE)
                 .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addGap(74, 74, 74))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(62, Short.MAX_VALUE)
                 .addComponent(PanneauGrille, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -124,6 +195,8 @@ private int nbColonnes = 5;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanneauBoutonsHorizontaux;
+    private javax.swing.JPanel PanneauBoutonsVerticaux;
     private javax.swing.JPanel PanneauGrille;
     // End of variables declaration//GEN-END:variables
 }
