@@ -42,7 +42,7 @@ initialiserBoutonsColonnes();
 
     public void initialiserPartie() {
     grille.eteindreToutesLesCellules();
-    grille.melangerMatriceAleatoirement(10); // tu peux changer le 10
+    grille.melangerMatriceAleatoirement(10); 
     nbCoups = 0;
     labelScore.setText("Score : 0");
 }
@@ -150,6 +150,41 @@ private void initialiserGrilleGraphique() {
         } else {
            
         }
+    }
+}
+    
+    private void choisirDifficulte() {
+    String[] options = {"Facile", "Moyen", "Difficile"};
+    String choix = (String) javax.swing.JOptionPane.showInputDialog(
+            this,
+            "Choisis une difficulté :",
+            "Difficulté",
+            javax.swing.JOptionPane.QUESTION_MESSAGE,
+            null,
+            options,
+            options[1]   // valeur par défaut = Moyen
+    );
+
+    if (choix == null) {
+        // si l'utilisateur annule, on reste sur Moyen
+        nbLignes = 5;
+        nbColonnes = 5;
+        return;
+    }
+
+    switch (choix) {
+        case "Facile":
+            nbLignes = 3;
+            nbColonnes = 3;
+            break;
+        case "Difficile":
+            nbLignes = 7;
+            nbColonnes = 7;
+            break;
+        default: // Moyen
+            nbLignes = 5;
+            nbColonnes = 5;
+            break;
     }
 }
 
