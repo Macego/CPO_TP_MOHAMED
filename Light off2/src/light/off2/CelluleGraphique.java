@@ -5,16 +5,14 @@
 package light.off2;
 import javax.swing.JButton;
 
-/**
- *
- * @author Macéo
- */
-public class CelluleGraphique {
+public class CelluleGraphique extends JButton {
+
     int largeur;
     int hauteur;
     CelluleLumineuse celluleLumineuseAssociee;
 
     public CelluleGraphique(CelluleLumineuse celluleLumineuseAssociee, int l, int h) {
+        super(); // constructeur de JButton
         this.largeur = l;
         this.hauteur = h;
         this.celluleLumineuseAssociee = celluleLumineuseAssociee;
@@ -26,5 +24,5 @@ public class CelluleGraphique {
         super.paintComponent(g);
         this.setText(celluleLumineuseAssociee.toString());
     }
-    
 }
+

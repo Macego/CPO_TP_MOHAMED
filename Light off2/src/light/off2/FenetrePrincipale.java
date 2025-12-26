@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package light.off2;
+import java.awt.GridLayout;
 
 /**
  *
@@ -20,7 +21,7 @@ private int nbColonnes = 5;
      */
     public FenetrePrincipale() {
         initComponents();
-            nbLignes = 5;
+      nbLignes = 5;
     nbColonnes = 5;
     grille = new GrilleDeJeu(nbLignes, nbColonnes);
     nbCoups = 0;
@@ -29,6 +30,26 @@ private int nbColonnes = 5;
     initialiserPartie();  
     initialiserGrilleGraphique();
     }
+
+    public void initialiserPartie() {
+    grille.eteindreToutesLesCellules();
+    grille.melangerMatriceAleatoirement(10); // tu peux changer le 10
+    nbCoups = 0;
+}
+
+    private void initialiserGrilleGraphique() {
+    PanneauGrille.removeAll();
+
+    for (int i = 0; i < nbLignes; i++) {
+        for (int j = 0; j < nbColonnes; j++) {
+            CelluleGraphique boutonCellule =
+                new CelluleGraphique(grille.matriceCellules[i][j], 40, 40);
+            PanneauGrille.add(boutonCellule);
+        }
+    }
+    PanneauGrille.revalidate();
+    PanneauGrille.repaint();
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
