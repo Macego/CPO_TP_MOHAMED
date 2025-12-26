@@ -47,19 +47,27 @@ initialiserBoutonsColonnes();
     labelScore.setText("Score : 0");
 }
 
-    private void initialiserGrilleGraphique() {
+private void initialiserGrilleGraphique() {
     PanneauGrille.removeAll();
 
     for (int i = 0; i < nbLignes; i++) {
         for (int j = 0; j < nbColonnes; j++) {
             CelluleGraphique boutonCellule =
-                new CelluleGraphique(grille, i, j,grille.matriceCellules[i][j],40, 40);
+                new CelluleGraphique(this,            
+                                     grille,          
+                                     i,               
+                                     j,               
+                                     grille.matriceCellules[i][j],
+                                     40,              
+                                     40);             
             PanneauGrille.add(boutonCellule);
         }
     }
+
     PanneauGrille.revalidate();
     PanneauGrille.repaint();
 }
+
     private void initialiserBoutonsLignes() {
     PanneauBoutonsVerticaux.removeAll();
 
