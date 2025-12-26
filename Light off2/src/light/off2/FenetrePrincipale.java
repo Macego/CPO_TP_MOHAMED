@@ -39,12 +39,23 @@ initialiserBoutonsLignes();
 initialiserBoutonsColonnes();
     }
 
-    public void initialiserPartie() {
+public void initialiserPartie() {
     grille.eteindreToutesLesCellules();
-    grille.melangerMatriceAleatoirement(10); 
+
+    int tours;
+    if (nbLignes == 3) {        
+        tours = 3;
+    } else if (nbLignes == 5) {  
+        tours = 7;
+    } else {                     
+        tours = 12;
+    }
+    grille.melangerMatriceAleatoirement(tours);
+
     nbCoups = 0;
     labelScore.setText("Score : 0");
 }
+
 
 private void initialiserGrilleGraphique() {
     PanneauGrille.removeAll();
