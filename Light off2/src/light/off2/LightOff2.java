@@ -14,6 +14,8 @@ public class LightOff2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Partie p = new Partie(5, 5);
+    p.lancerPartie();  
         // TODO code application logic here
     }
     
