@@ -25,8 +25,7 @@ private int nbColonnes = 5;
      */
     public FenetrePrincipale() {
         initComponents();
-      nbLignes = 5;
-    nbColonnes = 5;
+        choisirDifficulte();
     grille = new GrilleDeJeu(nbLignes, nbColonnes);
     nbCoups = 0;
     labelScore.setText("Score : 0");
@@ -53,13 +52,9 @@ private void initialiserGrilleGraphique() {
     for (int i = 0; i < nbLignes; i++) {
         for (int j = 0; j < nbColonnes; j++) {
             CelluleGraphique boutonCellule =
-                new CelluleGraphique(this,            
-                                     grille,          
-                                     i,               
-                                     j,               
+                new CelluleGraphique(this, grille, i, j,
                                      grille.matriceCellules[i][j],
-                                     40,              
-                                     40);             
+                                     40, 40);
             PanneauGrille.add(boutonCellule);
         }
     }
