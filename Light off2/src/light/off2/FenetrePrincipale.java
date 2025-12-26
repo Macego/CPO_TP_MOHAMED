@@ -50,7 +50,7 @@ initialiserBoutonsColonnes();
     for (int i = 0; i < nbLignes; i++) {
         for (int j = 0; j < nbColonnes; j++) {
             CelluleGraphique boutonCellule =
-                new CelluleGraphique(grille.matriceCellules[i][j], 40, 40);
+                new CelluleGraphique(grille, i, j,grille.matriceCellules[i][j],40, 40);
             PanneauGrille.add(boutonCellule);
         }
     }
@@ -86,6 +86,37 @@ initialiserBoutonsColonnes();
     PanneauBoutonsVerticaux.revalidate();
     PanneauBoutonsVerticaux.repaint();
 }
+    
+    private void initialiserBoutonsColonnes() {
+    PanneauBoutonsHorizontaux.removeAll();
+
+    for (int j = 0; j < nbColonnes; j++) {
+        JButton boutonColonne = new JButton("C" + j);
+
+        final int k = j; // index de colonne
+        ActionListener ecouteurClick = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                grille.activerColonneDeCellules(k);
+                nbCoups++;
+                PanneauGrille.repaint();
+
+                if (grille.cellulesToutesEteintes()) {
+                    javax.swing.JOptionPane.showMessageDialog(
+                        FenetrePrincipale.this,
+                        "Bravo, grille éteinte en " + nbCoups + " coups !");
+                }
+            }
+        };
+
+        boutonColonne.addActionListener(ecouteurClick);
+        PanneauBoutonsHorizontaux.add(boutonColonne);
+    }
+
+    PanneauBoutonsHorizontaux.revalidate();
+    PanneauBoutonsHorizontaux.repaint();
+}
+
 
     /**
      * This method is called from within the constructor to initialize the form.
